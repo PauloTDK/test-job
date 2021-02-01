@@ -1,0 +1,28 @@
+<div class="col-md-10 user-container">
+  <h2 style="margin: auto"> Usuários </h2>
+  <button class="btn btn-danger" (click)="addUser()"> Adicionar Usuário</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Email</th>
+      <th>Nascimento</th>
+      <th>Escolaridade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td class="hidden">{{user.id}}</td>
+      <td>{{user.nome}}</td>
+      <td>{{user.sobreNome}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.dataNascimento | date:'dd/MM/yyyy'}}</td>
+      <td>{{getEscolaridade(user.escolaridade)}}</td>
+      <td><button class="btn btn-success" (click)="deleteUser(user)"> Delete</button>
+        <button class="btn btn-success" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
